@@ -1,0 +1,25 @@
+create table pedidos
+(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100) NOT NULL,
+    endereco varchar(255) NOT NULL,
+    bairro varchar(100) NOT NULL,
+    municipio varchar(100) NOT NULL,
+    fone varchar(10) NOT NULL,
+    cpf varchar(30) NOT NULL,
+    quantidade1 int not null,
+    descricao1 varchar(255) not null,
+    valor1 float not null,
+    quantidade2 int not null,
+    descricao2 varchar(255) not null,
+    valor2 float not null,
+    quantidade3 int not null,
+    descricao3 varchar(255) not null,
+    valor3 float not null,
+    quantidade4 int not null,
+    descricao4 varchar(255) not null,
+    valor4 float not null,
+    quantidade5 int not null,
+    descricao5 varchar(255) not null,
+    valor5 float not null
+);

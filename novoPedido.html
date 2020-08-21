@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivito Moveis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <form action="salvarPedido.php" method="post">
+                <h3>Cliente: </h3>
+                <hr>
+                <div class="form-row mb-2">
+                    <div class="col-md-6">
+                        <input type="text" name="nome" id="nome" placeholder="Nome" class="form-control">
+                    </div>
+
+                    <div class="col-md">
+                        <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control">
+                    </div>
+
+                    <div class="col-md">
+                        <input type="text" name="fone" id="fone" placeholder="Telefone" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-row mb-2">
+                    <div class="col">
+                        <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Endereço">
+                    </div>
+                </div>
+
+                <div class="form-row mb-2">
+                    <div class="col">
+                        <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+                    </div>
+
+                    <div class="col">
+                        <input type="text" name="municipio" id="fone" class="form-control" placeholder="Municipio">
+                    </div>
+                </div>
+
+                <select name="pagamento" id="pagamento" class="form-control">
+                    <option value="A vista">À vista</option>
+                    <option value="A prazo">À prazo</option>
+                    <option value="Cartão de Crédito">Cartão de credito</option>
+                    <option value="Cartão de Débito">Cartão de débito</option>
+                </select>
+                <hr>
+
+                <h3>Descrição das mercadorias</h3>
+                <hr>
+                <p>1° item:</p>
+                <div class="form-row">
+                    <div class="col-md-1">
+                        <input type="text" name="quantidade1" placeholder="Qtd" id="quantidade1" class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" name="descricao1" placeholder="Descrição do produto" id="descricao1" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="valor1" placeholder="Valor" id="valor1" class="form-control">
+                    </div>
+                </div>
+                <hr>
+
+                <p>2° item:</p>
+                <div class="form-row">
+                    <div class="col-md-1">
+                        <input type="text" name="quantidade2" placeholder="Qtd" id="quantidade2 "class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" name="descricao2" placeholder="Descrição" id="descricao2" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="valor2" placeholder="Valor" id="valor2" class="form-control">
+                    </div>
+                </div>
+                <hr>
+
+                <p>3° item:</p>
+                <div class="form-row">
+                    <div class="col-md-1">
+                        <input type="text" name="quantidade3" placeholder="Qtd" id="quantidade3" class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" name="descricao3" placeholder="Descrição" id="descricao3" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="valor3" placeholder="Valor" id="valor3" class="form-control">
+                    </div>
+                </div>
+                <hr>
+
+                <p>4° item:</p>
+                <div class="form-row">
+                    <div class="col-md-1">
+                        <input type="text" name="quantidade4" placeholder="Qtd" id="quantidade4" class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" name="descricao4" placeholder="Descrição" id="descricao4" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="valor4" placeholder="Valor" id="valor4" class="form-control">
+                    </div>
+                </div>
+                <hr>
+
+                <p>5° item:</p>
+                <div class="form-row">
+                    <div class="col-md-1">
+                        <input type="text" name="quantidade5" placeholder="Qtd" id="quantidade5" class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" name="descricao5" placeholder="Descrição" id="descricao5" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="valor5" placeholder="Valor" id="valor5" class="form-control">
+                    </div>
+                </div>
+                <hr>
+
+                <input type="submit" value="Salvar" class="btn btn-success">
+                <input type="reset" value="Limpar" class="btn btn-light">
+                <a href="index.html" class="btn btn-primary">Voltar</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
