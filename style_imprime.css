@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 700px;
+    height: 280px;
+    border: black 1px ridge;
+}
+
+.borda {
+    border: 1px solid black;
+    flex-grow: 1;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-grow: initial;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    text-align: center;
+}
+
+.main-cliente {
+    display: grid;
+    grid-template-rows: 5;
+    grid-template-columns: 4;
+    grid-template-areas: 
+    'nome nome nome fone' 
+    'endereco endereco endereco bairro' 
+    'municipio cpf prazo pagamento' 
+    'frete montagem vendedor vendedor';
+    height: 1px;
+    border-collapse: collapse;
+}
+
+
+.nome {
+    grid-area: nome;
+}
+
+.fone {
+    grid-area: fone;
+}
+
+.cpf {
+    grid-area: cpf;
+}
+
+.endereco {
+    grid-area: endereco;
+}
+
+.bairro {
+    grid-area: bairro;
+}
+
+.municipio {
+    grid-area: municipio;
+}
+
+.pagamento {
+    grid-area: pagamento;
+}
+
+.frete {
+    grid-area: frete;
+}
+
+.montagem {
+    grid-area: montagem;
+}
+
+.prazo {
+    grid-area: prazo;
+}
+
+.vendedor {
+    grid-area: vendedor;
+}
+
+.main-produtos {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+}
+
+.num-pedido {
+    font-weight: 800;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.jaba {
+    flex-grow: 4;
+}
+
+.total {
+    flex-grow: 0;
+    flex-basis: 167px;
+}

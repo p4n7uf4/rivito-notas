@@ -22,7 +22,8 @@ $PDO = conecta_bd();
         <?php
         $stmt_count = $PDO->prepare("SELECT COUNT(*) AS total FROM pedidos");
         $stmt_count->execute();
-        $stmt = $PDO->prepare("SELECT id, nome, fone, pagamento, valor1, valor2, valor3, valor4, valor5 from pedidos ORDER BY id");
+        $stmt = $PDO->prepare("SELECT id, nome, fone, pagamento, valor1, valor2, 
+        valor3, valor4, valor5 from pedidos ORDER BY id");
         $stmt->execute();
         $total = $stmt_count->fetchColumn();
 

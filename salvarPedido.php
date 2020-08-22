@@ -9,6 +9,10 @@ $municipio = isset($_POST['municipio']) ? $_POST['municipio'] : null;
 $fone = isset($_POST['fone']) ? $_POST['fone'] : null;
 $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : null;
 $pagamento = $_POST['pagamento'];
+$frete = $_POST['frete'] ? $_POST['frete'] : null;
+$montagem = $_POST['montagem'] ? $_POST['frete'] : null;
+$prazo = $_POST['prazo'] ? $_POST['prazo'] : null;
+$vendedor = $_POST['vendedor'] ? $_POST['vendedor'] : null;
 
 $quantidade1 = isset($_POST['quantidade1']) ? $_POST['quantidade1'] : null;
 $descricao1 = isset($_POST['descricao1']) ? $_POST['descricao1'] : null;
@@ -26,13 +30,22 @@ $quantidade5 = isset($_POST['quantidade5']) ? $_POST['quantidade5'] : null;
 $descricao5 = isset($_POST['descricao5']) ? $_POST['descricao5'] : null;
 $valor5 = isset($_POST['valor5']) ? $_POST['valor5'] : 0;
 
-if (empty($nome) || empty($endereco) || empty($bairro) || empty($municipio) || empty($fone) || empty($cpf) || empty($pagamento)) {
+if (empty($nome) || empty($endereco) || empty($bairro) || empty($municipio) || 
+    empty($fone) || empty($cpf) || empty($pagamento)) {
     echo "É preciso preencher todos os campos do cadastro do cliente!";
     exit;
 }
 
 $PDO = conecta_bd();
-$sql = "INSERT INTO pedidos(nome, endereco, bairro, municipio, fone, cpf, pagamento, quantidade1, descricao1, valor1, quantidade2, descricao2, valor2, quantidade3, descricao3, valor3, quantidade4, descricao4, valor4, quantidade5, descricao5, valor5) values (:nome, :endereco, :bairro, :municipio, :fone, :cpf, :pagamento, :quantidade1, :descricao1, :valor1, :quantidade2, :descricao2, :valor2, :quantidade3, :descricao3, :valor3, :quantidade4, :descricao4, :valor4, :quantidade5, :descricao5, :valor5)";
+$sql = "INSERT INTO pedidos(nome, endereco, bairro, municipio, fone, cpf, 
+    pagamento, quantidade1, descricao1, valor1, quantidade2, descricao2, valor2, 
+    quantidade3, descricao3, valor3, quantidade4, descricao4, valor4, quantidade5, 
+    descricao5, valor5, frete, montagem, prazo, vendedor) values (:nome, :endereco, 
+    :bairro, :municipio, :fone, :cpf, :pagamento, :quantidade1, :descricao1, :valor1, 
+    :quantidade2, :descricao2, :valor2, :quantidade3, :descricao3, :valor3, :quantidade4, 
+    :descricao4, :valor4, :quantidade5, :descricao5, :valor5, :frete, :montagem, 
+    :prazo, :vendedor)";
+
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(":nome", $nome);
 $stmt->bindParam(":endereco", $endereco);
@@ -56,6 +69,10 @@ $stmt->bindParam(":valor4", $valor4);
 $stmt->bindParam(":quantidade5", $quantidade5);
 $stmt->bindParam(":descricao5", $descricao5);
 $stmt->bindParam(":valor5", $valor5);
+$stmt->bindParam(":frete", $frete);
+$stmt->bindParam(":montagem", $montagem);
+$stmt->bindParam(":prazo", $prazo);
+$stmt->bindParam(":vendedor", $vendedor);
 
 if($stmt->execute()) {
     header("Location: consultaPedido.php");

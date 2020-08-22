@@ -8,7 +8,10 @@ if (empty($id)) {
 }
 
 $PDO = conecta_bd();
-$stmt = $PDO->prepare("SELECT nome, endereco, bairro, municipio, fone, cpf, pagamento, quantidade1, descricao1, valor1, quantidade2, descricao2, valor2, quantidade3, descricao3, valor3, quantidade4, descricao4, valor4, quantidade5, descricao5, valor5 FROM pedidos WHERE id = :id");
+$stmt = $PDO->prepare("SELECT nome, endereco, bairro, municipio, fone, cpf, pagamento,
+    quantidade1, descricao1, valor1, quantidade2, descricao2, valor2, quantidade3, descricao3,
+    valor3, quantidade4, descricao4, valor4, quantidade5, descricao5, valor5 
+    FROM pedidos WHERE id = :id");
 $stmt->bindParam(":id", $id, PDO::FETCH_ASSOC);
 $stmt->execute();
 $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
