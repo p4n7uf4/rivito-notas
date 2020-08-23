@@ -22,8 +22,9 @@ $PDO = conecta_bd();
         <?php
         $stmt_count = $PDO->prepare("SELECT COUNT(*) AS total FROM pedidos");
         $stmt_count->execute();
-        $stmt = $PDO->prepare("SELECT id, nome, fone, pagamento, valor1, valor2, 
-        valor3, valor4, valor5 from pedidos ORDER BY id");
+        $stmt = $PDO->prepare("SELECT id, nome, fone, pagamento, quantidade1,
+        quantidade2, quantidade3, quantidade4, quantidade5, valor1, valor2, 
+        valor3, valor4, valor5, frete, montagem from pedidos ORDER BY id");
         $stmt->execute();
         $total = $stmt_count->fetchColumn();
 
@@ -47,11 +48,18 @@ $PDO = conecta_bd();
                         <td><?php echo $resultado['nome'] ?></td>
                         <td><?php echo $resultado['fone'] ?></td>
                         <td><?php echo $resultado['pagamento'] ?></td>
-                        <td>R$ <?php echo $resultado['valor1'] + $resultado['valor2'] + $resultado['valor3'] + $resultado['valor4'] + $resultado['valor5'] ?></td>
+                        <td>R$ <?php echo 
+                    ($resultado['valor1'] * $resultado['quantidade1']) +
+                    ($resultado['valor2'] * $resultado['quantidade2']) + 
+                    ($resultado['valor3'] * $resultado['quantidade3']) + 
+                    ($resultado['valor4'] * $resultado['quantidade4']) +
+                    ($resultado['valor5'] * $resultado['quantidade5']) +
+                    $resultado['frete'] + $resultado['montagem'] ?></td>
                         <td>
                             <a href="imprime.php?id=<?php echo $resultado['id'] ?>">Imprimir</a>
                             <a href="form_altera.php?id=<?php echo $resultado['id'] ?>">Alterar</a>
-                            <a href="exclui.php?id=<?php echo $resultado['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este pedido? (Ação não poderá ser desfeita)')">Excluir</a>
+                            <a href="exclui.php?id=<?php echo $resultado['id'] ?>" 
+                                onclick="return confirm('Tem certeza que deseja excluir este pedido? (Ação não poderá ser desfeita)')">Excluir</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

@@ -10,7 +10,7 @@ if (empty($id)) {
 $PDO = conecta_bd();
 $stmt = $PDO->prepare("SELECT nome, endereco, bairro, municipio, fone, cpf, pagamento,
     quantidade1, descricao1, valor1, quantidade2, descricao2, valor2, quantidade3, descricao3,
-    valor3, quantidade4, descricao4, valor4, quantidade5, descricao5, valor5 
+    valor3, quantidade4, descricao4, valor4, quantidade5, descricao5, valor5, prazo, montagem, vendedor, frete
     FROM pedidos WHERE id = :id");
 $stmt->bindParam(":id", $id, PDO::FETCH_ASSOC);
 $stmt->execute();
@@ -43,26 +43,51 @@ if (!is_array($resultado)) {
         <form action="altera.php" method="post">
             <h3>Cliente: </h3>
             <hr>
-            <label for="nome">Nome: </label>
-            <input type="text" name="nome" id="nome" value="<?= $resultado['nome'] ?>">
+            <div class="form-row mb-2">
+                <div class="col-md-6">
+                    <input type="text" name="nome" id="nome" placeholder="Nome" class="form-control" value="<?= $resultado['nome'] ?>">
+                </div>
 
-            <label for="nome">Endereço: </label>
-            <input type="text" name="endereco" id="endereco" value="<?= $resultado['endereco'] ?>">
+                <div class="col-md">
+                    <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control" value="<?= $resultado['cpf'] ?>">
+                </div>
 
-            <label for="nome">Bairro: </label>
-            <input type="text" name="bairro" id="bairro" value="<?= $resultado['bairro'] ?>">
+                <div class=" col-md">
+                    <input type="number" name="fone" id="fone" placeholder="Telefone" class="form-control" value="<?= $resultado['fone'] ?>">
+                </div>
+            </div>
 
-            <label for="nome">Municipio: </label>
-            <input type="text" name="municipio" id="municipio" value="<?= $resultado['municipio'] ?>">
+            <div class=" form-row mb-2">
+                <div class="col">
+                    <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Endereço" value="<?= $resultado['endereco'] ?>">
+                </div>
+            </div>
 
-            <label for="nome">Fone: </label>
-            <input type="text" name="fone" id="fone" value="<?= $resultado['fone'] ?>">
+            <div class="form-row mb-2">
+                <div class="col">
+                    <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" value="<?= $resultado['bairro'] ?>">
+                </div>
 
-            <label for="nome">CPF: </label>
-            <input type="text" name="cpf" id="cpf" value="<?= $resultado['cpf'] ?>">
+                <div class="col">
+                    <input type="text" name="municipio" id="municipio" class="form-control" placeholder="Municipio" value="<?= $resultado['municipio'] ?>">
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="col">
+                    <input type="number" name="frete" id="frete" class="form-control" placeholder="Valor do frete" value="<?= $resultado['frete'] ?>">
+                </div>
+                <div class="col">
+                    <input type="number" name="montagem" id="montagem" class="form-control" placeholder="Valor da montagem" value="<?= $resultado['montagem'] ?>">
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="prazo" id="prazo" class="form-control" placeholder="Prazo de entrega" value="<?= $resultado['prazo'] ?>">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="vendedor" id="vendedor" class="form-control" placeholder="Vendedor" value="<?= $resultado['vendedor'] ?>">
+                </div>
+            </div>
 
-            <label for="pagamento">Forma de pagamento:</label>
-            <select name="pagamento" id="pagamento">
+            <select name="pagamento" id="pagamento" class="form-control">
                 <option value="A vista">À vista</option>
                 <option value="A prazo">À prazo</option>
                 <option value="Cartão de Crédito">Cartão de credito</option>
@@ -73,52 +98,78 @@ if (!is_array($resultado)) {
             <h3>Descrição das mercadorias</h3>
             <hr>
             <p>1° item:</p>
-            <label for="quantidade1">Quantidade: </label>
-            <input type="text" name="quantidade1" id="quantidade1" value="<?= $resultado['quantidade1'] ?>">
-            <label for="descricao1">Descrição: </label>
-            <input type="text" name="descricao1" id="descricao1" value="<?= $resultado['descricao1'] ?>">
-            <label for="valor1">Valor: </label>
-            <input type="text" name="valor1" id="valor1" value="<?= $resultado['valor1'] ?>">
+            <div class="form-row">
+                <div class="col-md-1">
+                    <input type="number" name="quantidade1" placeholder="Qtd" id="quantidade1" class="form-control" value="<?= $resultado['quantidade1'] ?>">
+                </div>
+                <div class="col-md">
+                    <input type="text" name="descricao1" placeholder="Descrição do produto" id="descricao1" class="form-control" value="<?= $resultado['descricao1'] ?>">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="valor1" placeholder="Valor" id="valor1" class="form-control" value="<?= $resultado['valor1'] ?>">
+                </div>
+            </div>
             <hr>
 
             <p>2° item:</p>
-            <label for="quantidade2">Quantidade: </label>
-            <input type="text" name="quantidade2" id="quantidade2" value="<?= $resultado['quantidade2'] ?>">
-            <label for="descricao2">Descrição: </label>
-            <input type="text" name="descricao2" id="descricao2" value="<?= $resultado['descricao2'] ?>">
-            <label for="valor2">Valor: </label>
-            <input type="text" name="valor2" id="valor2" value="<?= $resultado['valor2'] ?>">
+            <div class="form-row">
+                <div class="col-md-1">
+                    <input type="number" name="quantidade2" placeholder="Qtd" id="quantidade2 " class="form-control" value="<?= $resultado['quantidade2'] ?>">
+                </div>
+                <div class="col-md">
+                    <input type="text" name="descricao2" placeholder="Descrição" id="descricao2" class="form-control" value="<?= $resultado['descricao2'] ?>">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="valor2" placeholder="Valor" id="valor2" class="form-control" value="<?= $resultado['valor2'] ?>">
+                </div>
+            </div>
             <hr>
 
             <p>3° item:</p>
-            <label for="quantidade3">Quantidade: </label>
-            <input type="text" name="quantidade3" id="quantidade3" value="<?= $resultado['quantidade3'] ?>">
-            <label for="descricao3">Descrição: </label>
-            <input type="text" name="descricao3" id="descricao3" value="<?= $resultado['descricao3'] ?>">
-            <label for="valor3">Valor: </label>
-            <input type="text" name="valor3" id="valor3" value="<?= $resultado['valor3'] ?>">
+            <div class="form-row">
+                <div class="col-md-1">
+                    <input type="number" name="quantidade3" placeholder="Qtd" id="quantidade3" class="form-control" value="<?= $resultado['quantidade3'] ?>">
+                </div>
+                <div class="col-md">
+                    <input type="text" name="descricao3" placeholder="Descrição" id="descricao3" class="form-control" value="<?= $resultado['descricao3'] ?>">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="valor3" placeholder="Valor" id="valor3" class="form-control" value="<?= $resultado['valor3'] ?>">
+                </div>
+            </div>
             <hr>
 
             <p>4° item:</p>
-            <label for="quantidade4">Quantidade: </label>
-            <input type="text" name="quantidade4" id="quantidade4" value="<?= $resultado['quantidade4'] ?>">
-            <label for="descricao4">Descrição: </label>
-            <input type="text" name="descricao4" id="descricao4" value="<?= $resultado['descricao4'] ?>">
-            <label for="valor4">Valor: </label>
-            <input type="text" name="valor4" id="valor4" value="<?= $resultado['valor4'] ?>">
+            <div class="form-row">
+                <div class="col-md-1">
+                    <input type="number" name="quantidade4" placeholder="Qtd" id="quantidade4" class="form-control" value="<?= $resultado['quantidade4'] ?>">
+                </div>
+                <div class="col-md">
+                    <input type="text" name="descricao4" placeholder="Descrição" id="descricao4" class="form-control" value="<?= $resultado['descricao4'] ?>">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="valor4" placeholder="Valor" id="valor4" class="form-control" value="<?= $resultado['valor4'] ?>">
+                </div>
+            </div>
             <hr>
 
             <p>5° item:</p>
-            <label for="quantidade5">Quantidade: </label>
-            <input type="text" name="quantidade5" id="quantidade5" value="<?= $resultado['quantidade5'] ?>">
-            <label for="descricao5">Descrição: </label>
-            <input type="text" name="descricao5" id="descricao5" value="<?= $resultado['descricao5'] ?>">
-            <label for="valor5">Valor: </label>
-            <input type="text" name="valor5" id="valor5" value="<?= $resultado['valor5'] ?>">
+            <div class="form-row">
+                <div class="col-md-1">
+                    <input type="number" name="quantidade5" placeholder="Qtd" id="quantidade5" class="form-control" value="<?= $resultado['quantidade5'] ?>">
+                </div>
+                <div class="col-md">
+                    <input type="text" name="descricao5" placeholder="Descrição" id="descricao5" class="form-control" value="<?= $resultado['descricao5'] ?>">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="valor5" placeholder="Valor" id="valor5" class="form-control" value="<?= $resultado['valor5'] ?>">
+                </div>
+            </div>
             <hr>
-            <input type="hidden" name="id" value="<?= $id ?>">
-            <input type="submit" value="Salvar">
-            <input type="reset" value="Limpar">
+            <input type="hidden" name="id" id="id" value="<?=$id?>">
+            <input type="submit" value="Salvar" class="btn btn-success">
+            <input type="reset" value="Limpar" class="btn btn-light">
+            <a href="index.html" class="btn btn-primary">Voltar</a>
         </form>
     </div>
 </body>

@@ -8,7 +8,11 @@ $bairro = isset($_POST['bairro']) ? $_POST['bairro'] : null;
 $municipio = isset($_POST['municipio']) ? $_POST['municipio'] : null;
 $fone = isset($_POST['fone']) ? $_POST['fone'] : null;
 $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : null;
-$pagamento = $_POST['pagamento'];
+$frete = isset($_POST['frete']) ? $_POST['frete'] : null;
+$montagem = isset($_POST['montagem']) ? $_POST['montagem'] : null;
+$prazo = isset($_POST['prazo']) ? $_POST['prazo'] : null;
+$vendedor = isset($_POST['vendedor']) ? $_POST['vendedor'] : null;
+$pagamento = isset($_POST['pagamento']) ? $_POST['pagamento'] : "Á vista";
 
 $quantidade1 = isset($_POST['quantidade1']) ? $_POST['quantidade1'] : null;
 $descricao1 = isset($_POST['descricao1']) ? $_POST['descricao1'] : null;
@@ -40,7 +44,8 @@ $stmt = $PDO->prepare("UPDATE pedidos SET nome = :nome, endereco = :endereco,
     valor2 = :valor2, quantidade3 = :quantidade3, descricao3 = :descricao3,
     valor3 = :valor3, quantidade4 = :quantidade4, descricao4 = :descricao4,
     valor4 = :valor4, quantidade5 = :quantidade5, descricao5 = :descricao5,
-    valor5 = :valor5 where id = :id");
+    valor5 = :valor5, frete = :frete, montagem = :montagem, prazo = :prazo,
+    vendedor = :vendedor where id = :id");
 
 $stmt->bindParam(":nome", $nome);
 $stmt->bindParam(":endereco", $endereco);
@@ -48,6 +53,10 @@ $stmt->bindParam(":bairro", $bairro);
 $stmt->bindParam(":municipio", $municipio);
 $stmt->bindParam(":fone", $fone);
 $stmt->bindParam(":cpf", $cpf);
+$stmt->bindParam(":frete", $frete);
+$stmt->bindParam(":montagem", $montagem);
+$stmt->bindParam(":prazo", $prazo);
+$stmt->bindParam(":vendedor", $vendedor);
 $stmt->bindParam(":pagamento", $pagamento);
 $stmt->bindParam(":quantidade1", $quantidade1);
 $stmt->bindParam(":descricao1", $descricao1);
