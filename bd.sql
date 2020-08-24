@@ -7,6 +7,7 @@ create table pedidos
     municipio varchar(100) NOT NULL,
     fone varchar(10) NOT NULL,
     cpf varchar(30) NOT NULL,
+    pagamento varchar(100) not null,
     quantidade1 int not null,
     descricao1 varchar(255) not null,
     valor1 float not null,

@@ -6,11 +6,20 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: static;
     width: 700px;
     height: 280px;
     border: black 1px ridge;
 }
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    width: 700px;
+    height: 280px;
+    border: black 1px ridge;
+} */
 
 .borda {
     border: 1px solid black;
