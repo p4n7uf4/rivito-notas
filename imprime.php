@@ -43,7 +43,7 @@ if (!is_array($resultado)) {
                 <h1>Rivito Moveis</h1>
             </div>
             <div class="infos borda">
-                <h3>3493.3957 / 98459.1232</h3>
+                <h3>3446-7184 / 99393-5517</h3>
                 <p>
                     <strong>Rivito Móveis e Decorações Ltda.</strong><br>
                     Av. Plácido Motim, 1640 - Cecilia - Viamão - RS
@@ -125,7 +125,7 @@ if (!is_array($resultado)) {
                 <h1>Rivito Moveis</h1>
             </div>
             <div class="infos borda">
-                <h3>3493.3957 / 98459.1232</h3>
+                <h3>3446-7184 / 99393-5517</h3>
                 <p>
                     <strong>Rivito Móveis e Decorações Ltda.</strong><br>
                     Av. Plácido Motim, 1640 - Cecilia - Viamão - RS
@@ -207,7 +207,7 @@ if (!is_array($resultado)) {
                 <h1>Rivito Moveis</h1>
             </div>
             <div class="infos borda">
-                <h3>3493.3957 / 98459.1232</h3>
+                <h3>3446-7184 / 99393-5517</h3>
                 <p>
                     <strong>Rivito Móveis e Decorações Ltda.</strong><br>
                     Av. Plácido Motim, 1640 - Cecilia - Viamão - RS
