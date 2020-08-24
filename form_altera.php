@@ -34,12 +34,11 @@ if (!is_array($resultado)) {
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">
-            <h2>Rivito Móveis </h2>
-        </div>
-    </header>
-    <div class="container">
+<div class="jumbotron">
+			<h1 class="display-4">Rivito Móveis</h1>
+			<p class="lead">Aplicação para controle de pedidos</p>
+            <hr class="my-4">
+            <div class="container">
         <form action="altera.php" method="post">
             <h3>Cliente: </h3>
             <hr>
@@ -167,11 +166,18 @@ if (!is_array($resultado)) {
             </div>
             <hr>
             <input type="hidden" name="id" id="id" value="<?=$id?>">
-            <input type="submit" value="Salvar" class="btn btn-success">
-            <input type="reset" value="Limpar" class="btn btn-light">
-            <a href="index.html" class="btn btn-primary">Voltar</a>
+            <div class="btn-group">
+                <input type="submit" value="Salvar" class="btn btn-success">
+                <input type="reset" value="Limpar" class="btn btn-light">
+                <a href="index.html" class="btn btn-primary">Voltar</a>
+            </div>
         </form>
     </div>
+			<hr class="my-4">
+			<p>Criado por: <strong> Lenin Ribeiro Quadros </strong></p>
+		  </div>
+    
+    
 </body>
 
 </html>
